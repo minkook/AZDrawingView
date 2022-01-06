@@ -7,42 +7,63 @@
 
 import Foundation
 
-//@IBDesignable
 open class AZDrawingView: UIView {
-
-    // 1.0
-    @IBInspectable public var strokeWidth: CGFloat {
+    
+    
+    // default to 1.0
+    @IBInspectable public var strokeWidth: CGFloat = 1.0
+    
+    
+    // default to red
+    @IBInspectable public var strokeColor: UIColor = UIColor.red
+    
+    
+    // default to lineCapRound
+    public var lineCap: CGLineCap = CGLineCap.round
+    
+    
+    // debug guide
+    public var debugGuideLine: Bool {
         get {
-            return _strokeWidth
+            return _debugGuideLine
         }
         set {
-            _strokeWidth = newValue
+            _debugGuideLine = newValue
+            self.layer.borderWidth = _debugGuideLine ? 1.0 : 0.0
+            self.layer.borderColor = UIColor.red.cgColor
+            self.layer.cornerRadius = 5
         }
     }
-
-    //
-    @IBInspectable public var strokeColor: UIColor = UIColor.red
-
-    //
-    @IBInspectable public var lineCap: CGLineCap = CGLineCap.round
-
-    //
-    public var maxHistoryCount: UInt = 10
     
-    //
+    // undo & redo History Count
+    public var maxHistoryCount: UInt {
+        get { return _maxHistoryCount }
+        set { _maxHistoryCount = min(newValue, 100) }
+    }
+    
+    
+    // remove all history
     public func clear() { executeClear() }
     
-    //
+    
+    // undo
     public func undo() { executeUndo() }
-
-    //
+    
+    
+    // redo
     public func redo() { executeRedo() }
-
+    
+    
+    
     //----------------------------------------------------------------------
     //----------------------------------------------------------------------
     //----------------------------------------------------------------------
-
+    
     private var _strokeWidth: CGFloat = 1.0
+    private var _strokeColor: UIColor = UIColor.red
+    private var _debugGuideLine: Bool = false
+    
+    private var _maxHistoryCount: UInt = 10
 
     //
     private var imageView = UIImageView.init()
@@ -57,7 +78,7 @@ open class AZDrawingView: UIView {
     private var previousPoint1: CGPoint = CGPoint.zero
     private var previousPoint2: CGPoint = CGPoint.zero
     private var currentPoint: CGPoint = CGPoint.zero
-
+    
     private var isFirstDrawing: Bool = false
     
     override init(frame: CGRect) {
@@ -71,18 +92,13 @@ open class AZDrawingView: UIView {
     }
     
     private func initialize() {
-        
         self .addSubview(imageView)
-        
-        self.layer.borderWidth = 1.0
-        self.layer.borderColor = UIColor.red.cgColor
-        self.layer.cornerRadius = 5
     }
     
 }
 
 
-// override
+// MARK: override
 extension AZDrawingView {
 
     override open func layoutSubviews() {
@@ -161,6 +177,7 @@ extension AZDrawingView {
 }
 
 
+// MARK: execute
 private extension AZDrawingView {
 
     func executeCommandHistoryWithImage(_ image: UIImage) {
