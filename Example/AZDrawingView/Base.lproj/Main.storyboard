@@ -20,21 +20,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uiv-hD-GYJ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UcD-kb-HLP">
+                                        <rect key="frame" x="329" y="0.0" width="36" height="40"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Clear"/>
+                                        <connections>
+                                            <action selector="clearButtonAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="9yK-Ex-W6h"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A2A-t6-LMD">
+                                        <rect key="frame" x="278" y="0.0" width="36" height="40"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Redo"/>
+                                        <connections>
+                                            <action selector="redoButtonAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="uaI-Uu-Qww"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unN-Tv-4OC">
+                                        <rect key="frame" x="226" y="0.0" width="37" height="40"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Undo"/>
+                                        <connections>
+                                            <action selector="undoButtonAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="RUp-C5-Apb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="UcD-kb-HLP" secondAttribute="bottom" id="1Pr-fo-YgJ"/>
+                                    <constraint firstItem="UcD-kb-HLP" firstAttribute="top" secondItem="uiv-hD-GYJ" secondAttribute="top" id="4ZR-FJ-qGZ"/>
+                                    <constraint firstItem="UcD-kb-HLP" firstAttribute="leading" secondItem="A2A-t6-LMD" secondAttribute="trailing" constant="15" id="6Cp-tn-aXE"/>
+                                    <constraint firstAttribute="trailing" secondItem="UcD-kb-HLP" secondAttribute="trailing" constant="10" id="BjT-2L-V53"/>
+                                    <constraint firstAttribute="bottom" secondItem="A2A-t6-LMD" secondAttribute="bottom" id="D5g-FA-rau"/>
+                                    <constraint firstItem="unN-Tv-4OC" firstAttribute="top" secondItem="uiv-hD-GYJ" secondAttribute="top" id="EJ6-Uf-zqh"/>
+                                    <constraint firstAttribute="height" constant="40" id="FUK-DF-L5j"/>
+                                    <constraint firstItem="A2A-t6-LMD" firstAttribute="top" secondItem="uiv-hD-GYJ" secondAttribute="top" id="JeO-Ou-JLL"/>
+                                    <constraint firstItem="unN-Tv-4OC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="uiv-hD-GYJ" secondAttribute="leading" id="Zy8-ST-6xM"/>
+                                    <constraint firstItem="A2A-t6-LMD" firstAttribute="leading" secondItem="unN-Tv-4OC" secondAttribute="trailing" constant="15" id="gnJ-pz-8fb"/>
+                                    <constraint firstAttribute="bottom" secondItem="unN-Tv-4OC" secondAttribute="bottom" id="lDn-uf-fpY"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ptq-eQ-nro" customClass="AZDrawingView" customModule="AZDrawingView">
-                                <rect key="frame" x="10" y="40" width="355" height="617"/>
+                                <rect key="frame" x="10" y="50" width="355" height="607"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="ptq-eQ-nro" firstAttribute="top" secondItem="uiv-hD-GYJ" secondAttribute="bottom" constant="10" id="7dK-UM-q9h"/>
                             <constraint firstItem="ptq-eQ-nro" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="10" id="81x-6d-pST"/>
                             <constraint firstAttribute="trailing" secondItem="ptq-eQ-nro" secondAttribute="trailing" constant="10" id="AhT-y0-PUn"/>
-                            <constraint firstItem="ptq-eQ-nro" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="40" id="EDY-Lb-zNT"/>
+                            <constraint firstItem="uiv-hD-GYJ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="GyR-kC-0oy"/>
+                            <constraint firstAttribute="trailing" secondItem="uiv-hD-GYJ" secondAttribute="trailing" id="IBk-RN-PFY"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="ptq-eQ-nro" secondAttribute="bottom" constant="10" id="cAG-hD-Pdi"/>
+                            <constraint firstItem="uiv-hD-GYJ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="hp9-Mo-KMn"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="view" destination="ptq-eQ-nro" id="XYI-Dz-0PE"/>
+                        <outlet property="drawingView" destination="ptq-eQ-nro" id="ueU-Ru-QSy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
