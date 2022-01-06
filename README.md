@@ -1,6 +1,6 @@
 # AZDrawingView
 
-[![CI Status](https://img.shields.io/travis/mkyoo/AZDrawingView.svg?style=flat)](https://travis-ci.org/mkyoo/AZDrawingView)
+[![CI Status](https://img.shields.io/travis/minkook/AZDrawingView.svg?style=flat)](https://travis-ci.org/minkook/AZDrawingView)
 [![Version](https://img.shields.io/cocoapods/v/AZDrawingView.svg?style=flat)](https://cocoapods.org/pods/AZDrawingView)
 [![License](https://img.shields.io/cocoapods/l/AZDrawingView.svg?style=flat)](https://cocoapods.org/pods/AZDrawingView)
 [![Platform](https://img.shields.io/cocoapods/p/AZDrawingView.svg?style=flat)](https://cocoapods.org/pods/AZDrawingView)
@@ -22,7 +22,7 @@ pod 'AZDrawingView'
 
 ## Author
 
-mkyoo, manguksmediawill@gmail.com
+minkook, manguks@gmail.com
 
 ## License
 
