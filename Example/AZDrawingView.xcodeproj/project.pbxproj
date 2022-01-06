@@ -29,7 +29,7 @@
 
 /* Begin PBXFileReference section */
 		40F3887281AAC1CD9CB0CE26 /* Pods_AZDrawingView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AZDrawingView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A6F478C9213EDFD6DA82C09 /* AZDrawingView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = AZDrawingView.podspec; path = ../AZDrawingView.podspec; sourceTree = "<group>"; };
+		4A6F478C9213EDFD6DA82C09 /* AZDrawingView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = AZDrawingView.podspec; path = ../AZDrawingView.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		607FACD01AFB9204008FA782 /* AZDrawingView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AZDrawingView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };

@@ -22,6 +22,40 @@ open class AZDrawingView: UIView {
     public var lineCap: CGLineCap = CGLineCap.round
     
     
+    // current image
+    public var currentDrawingImage: UIImage {
+        get {
+            if currentCommandIndex == 0 {
+                return clearImage
+            } else {
+                return commandHistory[currentCommandIndex]
+            }
+        }
+    }
+    
+    
+    // undo & redo History Count
+    public var maxHistoryCount: UInt {
+        get { return _maxHistoryCount }
+        set { _maxHistoryCount = min(newValue, 100) }
+    }
+    
+    
+    // remove all history
+    public var availableClear: Bool { get { return commandHistory.count > 0 } }
+    public func clear() { executeClear() }
+    
+    
+    // undo
+    public var availableUndo: Bool { get { return currentCommandIndex > 0 } }
+    public func undo() { executeUndo() }
+    
+    
+    // redo
+    public var availableRedo: Bool { get { return currentCommandIndex < commandHistory.count - 1 } }
+    public func redo() { executeRedo() }
+    
+    
     // debug guide
     public var debugGuideLine: Bool {
         get {
@@ -35,33 +69,11 @@ open class AZDrawingView: UIView {
         }
     }
     
-    // undo & redo History Count
-    public var maxHistoryCount: UInt {
-        get { return _maxHistoryCount }
-        set { _maxHistoryCount = min(newValue, 100) }
-    }
-    
-    
-    // remove all history
-    public func clear() { executeClear() }
-    
-    
-    // undo
-    public func undo() { executeUndo() }
-    
-    
-    // redo
-    public func redo() { executeRedo() }
-    
     
     
     //----------------------------------------------------------------------
     //----------------------------------------------------------------------
     //----------------------------------------------------------------------
-    
-    private var _strokeWidth: CGFloat = 1.0
-    private var _strokeColor: UIColor = UIColor.red
-    private var _debugGuideLine: Bool = false
     
     private var _maxHistoryCount: UInt = 10
 
@@ -80,6 +92,9 @@ open class AZDrawingView: UIView {
     private var currentPoint: CGPoint = CGPoint.zero
     
     private var isFirstDrawing: Bool = false
+    
+    private var _debugGuideLine: Bool = false
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -204,7 +219,7 @@ private extension AZDrawingView {
     
     func executeClear() {
         
-        if currentCommandIndex == 0 { return }
+        if !availableClear { return }
         
         commandHistory = []
         currentCommandIndex = 0
@@ -215,7 +230,7 @@ private extension AZDrawingView {
     
     func executeUndo() {
         
-        if currentCommandIndex <= 0 { return }
+        if !availableUndo { return }
         
         currentCommandIndex -= 1
         imageView.image = commandHistory[currentCommandIndex]
@@ -224,7 +239,7 @@ private extension AZDrawingView {
     
     func executeRedo() {
         
-        if currentCommandIndex >= commandHistory.count - 1 { return }
+        if !availableRedo { return }
         
         currentCommandIndex += 1
         imageView.image = commandHistory[currentCommandIndex]
