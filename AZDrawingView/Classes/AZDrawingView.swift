@@ -76,14 +76,10 @@ open class AZDrawingView: UIView {
     //----------------------------------------------------------------------
     
     private var _maxHistoryCount: UInt = 10
-
-    //
+    
     private var imageView = UIImageView.init()
-
-    //
     private var clearImage: UIImage = UIImage()
     
-    //
     private var commandHistory: Array<UIImage> = []
     private var currentCommandIndex: Int = 0
     
@@ -113,7 +109,7 @@ open class AZDrawingView: UIView {
 }
 
 
-// MARK: override
+// MARK: touch control
 extension AZDrawingView {
 
     override open func layoutSubviews() {
@@ -185,7 +181,7 @@ extension AZDrawingView {
 
     }
 
-    func midPoint(_ p1: CGPoint, _ p2: CGPoint) -> CGPoint {
+    private func midPoint(_ p1: CGPoint, _ p2: CGPoint) -> CGPoint {
         return CGPoint(x: (p1.x + p2.x) * 0.5, y: (p1.y + p2.y) * 0.5)
     }
 
