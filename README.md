@@ -7,7 +7,7 @@
 
 
 <p align="center">
-      <img src="https://user-images.githubusercontent.com/2138712/148476652-c9928fe1-4256-46a4-95f3-79e859cf87f7.gif" alt="CollectionViewSlantedLayout" title="CollectionViewSlantedLayout"> 
+      <img src="https://user-images.githubusercontent.com/2138712/148476652-c9928fe1-4256-46a4-95f3-79e859cf87f7.gif" alt="AZDrawingView" title="AZDrawingView"> 
 </p>
 
 
